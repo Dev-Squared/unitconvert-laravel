@@ -44,6 +44,16 @@ The UnitConvert database contains variants as people use the system. Commonly mi
 Below is an example of how to compare and convert a unit of measurement(s).
 
 ```$xslt
+// Get Information for a Unit of Measurement
+$response = UnitConvert::getMeasurementInfo('20 miles');
+$response->getSuccess(); // Returns true
+$response->getAmount(); // Returns 20
+$response->getUnit(); // Returns "Miles"
+$response->getDisplay(); // Returns "20 Miles"
+$response->getCategory(); // Returns "Length"
+$response->getVariants(); // Returns ["Mile","Miles","mi"]
+$response->getConvertableTo(); // Returns ["Centimeters","Millimeters","Meters","Inches","Feet","Yards","Miles","Decimeters","Kilometers","Astronomical Units","Light Years","Parsecs","Nautical Miles"]
+
 // Comparing a Measurement
 $response = UnitConvert::compare('10mg', '==', '10 pounds');
 $response->getSuccess(); // Returns true

@@ -11,6 +11,20 @@ class UnitConvert implements UnitConvertContract
 {
     protected $response;
 
+    public function getMeasurementInfo(string $measurement)
+    {
+        $client = self::getBaseUrl();
+        $response = $client->request('GET', 'measurements/info', [
+            'query' => [
+                'measurement' => $measurement
+            ]
+        ]);
+        $body = $response->getBody();
+        $result = $body->getContents();
+        $this->response = json_decode($result);
+
+        return $this;
+    }
 
     public function convert(string $from, string $to)
     {
@@ -32,7 +46,6 @@ class UnitConvert implements UnitConvertContract
     {
         $client = new Client([
             'base_uri' => 'https://api.unitconvert.io/api/v1/',
-            'timeout' => 2.0,
             'headers' => [
                 'api-key' => config('unitconvert.api_key')
             ]
@@ -94,5 +107,20 @@ class UnitConvert implements UnitConvertContract
     public function getDisplay()
     {
         return $this->response->display;
+    }
+
+    public function getCategory()
+    {
+        return $this->response->category;
+    }
+
+    public function getVariants()
+    {
+        return $this->response->variants;
+    }
+
+    public function getConvertableTo()
+    {
+        return $this->response->convertableTo;
     }
 }

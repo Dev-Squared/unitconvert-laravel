@@ -13,6 +13,15 @@ interface UnitConvert
     public function convert(string $from, string $to);
 
     /**
+     * Attempt to retrieve the information for a unit of measurement.
+     *
+     * @param string $measurement
+     *
+     * @return UnitConvert
+     */
+    public function getMeasurementInfo(string $measurement);
+
+    /**
      * Attempt to compare two measurements.
      *
      * @param string $first
@@ -56,4 +65,25 @@ interface UnitConvert
      * @return string
      */
     public function getDisplay();
+
+    /**
+     * Get measurement category.
+     *
+     * @return string
+     */
+    public function getCategory();
+
+    /**
+     * Get measurement variants.
+     *
+     * @return array
+     */
+    public function getVariants();
+
+    /**
+     * Get measurement options for converting.
+     *
+     * @return array
+     */
+    public function getConvertableTo();
 }
