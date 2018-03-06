@@ -1,6 +1,6 @@
 # Convert/Compare Units of Measurement in Laravel
 
-[![Latest Version](https://img.shields.io/github/release/Dev-Squared/unitconvert-laravel?style=flat-square)](https://github.com/Dev-Squared/unitconvert-laravel/releases)
+[![Latest Version](https://img.shields.io/github/release/Dev-Squared/unitconvert-laravel.svg)](https://github.com/Dev-Squared/unitconvert-laravel/releases)
 [![GitHub license](https://img.shields.io/github/license/Dev-Squared/unitconvert-laravel.svg)](https://github.com/Dev-Squared/unitconvert-laravel/blob/master/LICENSE.md)
 
 
