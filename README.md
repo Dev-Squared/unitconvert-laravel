@@ -1,5 +1,9 @@
 # Convert/Compare Units of Measurement in Laravel
 
+[![Latest Version](https://img.shields.io/github/release/Dev-Squared/unitconvert-laravel?style=flat-square)](https://github.com/Dev-Squared/unitconvert-laravel/releases)
+[![GitHub license](https://img.shields.io/github/license/Dev-Squared/unitconvert-laravel.svg)](https://github.com/Dev-Squared/unitconvert-laravel/blob/master/LICENSE.md)
+
+
 With the UnitConvert.io wrapper for Laravel, you can quickly and easily compare and convert units of measurement programmatically.
 
 This package was created and developer by DevSquared - a consultant and development agency located in Pittsburg, KS, USA. [Check out our website](https://dev-squared.com/) to learn more information about us.
@@ -42,15 +46,15 @@ Below is an example of how to compare and convert a unit of measurement(s).
 ```$xslt
 // Comparing a Measurement
 $response = UnitConvert::compare('10mg', '==', '10 pounds');
-$success = $response->getSuccess(); // Returns true
-$result = $response->getResult(); // Returns false
+$response->getSuccess(); // Returns true
+$response->getResult(); // Returns false
 
 // Converting a Measurement
 $response = UnitConvert::convert('20 miles', 'kilometers');
-$success = $response->getSuccess(); // Returns true
-$amount = $response->getAmount(); // Returns 32.1868
-$unit = $response->getUnit(); // Returns "Kilometers"
-$display = $response->getDisplay(); // Returns "32.18680 Kilometers"
+$response->getSuccess(); // Returns true
+$response->getAmount(); // Returns 32.1868
+$response->getUnit(); // Returns "Kilometers"
+$response->getDisplay(); // Returns "32.18680 Kilometers"
 ```
 
 ## Changelog
