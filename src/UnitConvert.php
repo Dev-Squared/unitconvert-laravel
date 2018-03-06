@@ -42,18 +42,6 @@ class UnitConvert implements UnitConvertContract
         return $this;
     }
 
-    private function getBaseUrl()
-    {
-        $client = new Client([
-            'base_uri' => 'https://api.unitconvert.io/api/v1/',
-            'headers' => [
-                'api-key' => config('unitconvert.api_key')
-            ]
-        ]);
-
-        return $client;
-    }
-
     public function compare(string $first, string $comparison, string $second)
     {
         $client = self::getBaseUrl();
@@ -73,7 +61,60 @@ class UnitConvert implements UnitConvertContract
 
     public function getAmount()
     {
-        return self::parseDecimalNotation($this->response->amount);
+        return isset($this->response->amount) ? self::parseDecimalNotation($this->response->amount) : null;
+    }
+
+    public function getSuccess()
+    {
+        return $this->response->success;
+    }
+
+    public function getResult()
+    {
+        return isset($this->response->result) ? $this->response->result : '';
+    }
+
+    public function getUnit()
+    {
+        return isset($this->response->unit) ? $this->response->unit : '';
+    }
+
+    public function getDisplay()
+    {
+        return isset($this->response->display) ? $this->response->display : '';
+    }
+
+    public function getCategory()
+    {
+        return isset($this->response->category) ? $this->response->category : '';
+    }
+
+    public function getVariants()
+    {
+        return isset($this->response->variants) ? $this->response->variants : [];
+    }
+
+    public function getConvertableTo()
+    {
+        return isset($this->response->convertableTo) ? $this->response->convertableTo : [];
+    }
+
+    public function getError()
+    {
+        return isset($this->response->error) ? $this->response->error : null;
+    }
+
+    private function getBaseUrl()
+    {
+        $client = new Client([
+            'base_uri' => 'https://api.unitconvert.io/api/v1/',
+            'headers' => [
+                'api-key' => config('unitconvert.api_key')
+            ],
+            'http_errors' => false
+        ]);
+
+        return $client;
     }
 
     private function parseDecimalNotation($float)
@@ -87,40 +128,5 @@ class UnitConvert implements UnitConvertContract
         } else {
             return $float;
         }
-    }
-
-    public function getSuccess()
-    {
-        return $this->response->success;
-    }
-
-    public function getResult()
-    {
-        return $this->response->result;
-    }
-
-    public function getUnit()
-    {
-        return $this->response->unit;
-    }
-
-    public function getDisplay()
-    {
-        return $this->response->display;
-    }
-
-    public function getCategory()
-    {
-        return $this->response->category;
-    }
-
-    public function getVariants()
-    {
-        return $this->response->variants;
-    }
-
-    public function getConvertableTo()
-    {
-        return $this->response->convertableTo;
     }
 }

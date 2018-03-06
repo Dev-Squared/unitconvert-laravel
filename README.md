@@ -47,6 +47,7 @@ Below is an example of how to compare and convert a unit of measurement(s).
 // Get Information for a Unit of Measurement
 $response = UnitConvert::getMeasurementInfo('20 miles');
 $response->getSuccess(); // Returns true
+$response->getError(); // Returns the response error message, if success is false
 $response->getAmount(); // Returns 20
 $response->getUnit(); // Returns "Miles"
 $response->getDisplay(); // Returns "20 Miles"
@@ -57,14 +58,27 @@ $response->getConvertableTo(); // Returns ["Centimeters","Millimeters","Meters",
 // Comparing a Measurement
 $response = UnitConvert::compare('10mg', '==', '10 pounds');
 $response->getSuccess(); // Returns true
+$response->getError(); // Returns the response error message, if success is false
 $response->getResult(); // Returns false
 
 // Converting a Measurement
 $response = UnitConvert::convert('20 miles', 'kilometers');
 $response->getSuccess(); // Returns true
+$response->getError(); // Returns the response error message, if success is false
 $response->getAmount(); // Returns 32.1868
 $response->getUnit(); // Returns "Kilometers"
 $response->getDisplay(); // Returns "32.18680 Kilometers"
+```
+
+Here is an example use case for the `convert` function:
+
+```
+$response = UnitConvert::convert('20 miles', 'gallons');
+if ($response->getSuccess() == false) {
+    return $response->getError();
+}
+
+return $response->getDisplay();
 ```
 
 ## Changelog

@@ -86,4 +86,11 @@ interface UnitConvert
      * @return array
      */
     public function getConvertableTo();
+
+    /**
+     * Show response error.
+     *
+     * @return string
+     */
+    public function getError();
 }
