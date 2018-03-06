@@ -1,6 +1,5 @@
 {
   "name": "devsquared/unitconvert-laravel",
-  "version": "0.1.0",
   "description": "UnitConvert API Wrapper for Laravel",
   "keywords": [
     "unit conversion",
