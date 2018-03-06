@@ -1,0 +1,48 @@
+{
+  "name": "devsquared/unitconvert-laravel",
+  "version": "0.1.0",
+  "description": "UnitConvert API Wrapper for Laravel",
+  "keywords": [
+    "unit conversion",
+    "unitconvert",
+    "convert measurements",
+    "laravel"
+  ],
+  "homepage": "https://unitconvert.io",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Caleb Smith",
+      "email": "caleb@dev-squared.com"
+    },
+    {
+      "name": "John Kuefler",
+      "email": "john@dev-squared.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": "^7.0",
+    "laravel/framework": "^5.4.29",
+    "guzzlehttp/guzzle": "~6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "DevSquared\\UnitConvert\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "DevSquared\\UnitConvert\\UnitConvertServiceProvider"
+      ],
+      "aliases": {
+        "UnitConvert": "DevSquared\\UnitConvert\\UnitConvertFacade"
+      }
+    }
+  },
+  "config": {
+    "sort-packages": true
+  }
+}
