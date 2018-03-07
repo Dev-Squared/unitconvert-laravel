@@ -14,7 +14,7 @@ This package can be installed through Composer.
 
 `composer require devsquared/unitconvert-laravel`
 
-In Laravel 5.5 and above, the package will autoregister the provider and the alias. For Laravel 5.4 and below, you must install the provider and the alias in your `config/app.php` file.
+In Laravel 5.5 and above, the package will autoregister the provider and the alias. For Laravel 5.4 and below, you must install the provider and the alias.
 
 ```
 // config/app.php
@@ -44,6 +44,8 @@ The UnitConvert database contains variants as people use the system. Commonly mi
 Below is an example of how to compare and convert a unit of measurement(s).
 
 ```$xslt
+use UnitConvert;
+
 // Get Information for a Unit of Measurement
 $response = UnitConvert::getMeasurementInfo('20 miles');
 $response->getSuccess(); // Returns true
