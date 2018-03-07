@@ -14,7 +14,7 @@ This package can be installed through Composer.
 
 `composer require devsquared/unitconvert-laravel`
 
-In Laravel 5.5 and above, the package will autoregister the provider and the alias. For Laravel 5.4 and below, you must install the provider and the alias.
+In Laravel 5.5 and above, the package will autoregister the provider and the alias. For Laravel 5.4 and below, you must install the provider and the alias in your `config/app.php` file.
 
 ```
 // config/app.php
